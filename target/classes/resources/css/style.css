@@ -55,3 +55,16 @@ h1{
 .rotulo{
 	width: 150px;
 }
+.ui-panelgrid td{
+	height: 34px;
+	
+}
+
+.ajax-status{
+	position: fixed;
+	top: 0px;
+	left:50px;
+	width:5px;
+	color:red;
+	border: 2px solid red;
+}
