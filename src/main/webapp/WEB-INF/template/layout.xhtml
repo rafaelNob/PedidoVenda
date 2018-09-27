@@ -13,6 +13,7 @@
 	<h:outputScript library="js" name="maskMoney.js"/>
 </h:head>
 <h:body>
+	<f:view locale="pt">
 	<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()	">
 		<f:facet name="start">
 			<h:graphicImage library="images" name="load.gif"/>
@@ -49,5 +50,6 @@
 			configurarMoeda();
 			});
 	</script>
+	</f:view>
 </h:body>
 </html>
