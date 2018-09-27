@@ -65,6 +65,10 @@ h1{
 	top: 0px;
 	left:50px;
 	width:5px;
-	color:red;
-	border: 2px solid red;
+	
+	
+}
+.ui-selectmanycheckbox td{
+	
+	padding-left: 10px !important;
 }
