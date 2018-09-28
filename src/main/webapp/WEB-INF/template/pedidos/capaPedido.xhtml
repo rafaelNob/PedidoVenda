@@ -1,0 +1,50 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+		<p:panelGrid columns="4" style="width:100%; margin-top:20px;" columnClasses="rotulo, campo, rotulo, campo">
+			<p:outputLabel value="#{msg['msg.number']}"/>
+			<h:outputText value="12345" />
+			
+			<p:outputLabel value="#{msg['msg.date']}"/>
+			<h:outputText value="08/06/2018" />
+			
+			<p:outputLabel value="#{msg['msg.status']}"/>
+			<h:outputText value="Emitido" />
+			
+			<p:outputLabel for="vendedor" value="#{msg['msg.salesman']}"/>
+			<p:selectOneMenu id="vendedor">
+<!-- 				<f:selectItem itemLabel="#{msg['msg.select.salesman']}"/> -->
+				<f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true"/>
+				
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="#{msg['msg.client']}"/>
+			<p:autoComplete size="40" maxlength="10"/>
+			
+			<p:outputLabel for="forma-de-pagamento" value="#{msg['msg.payment']}"/>
+			<p:selectOneMenu id="forma-de-pagamento">
+<!-- 				<f:selectItem itemLabel="#{msg['msg.select.salesman']}"/> -->
+				<f:selectItem itemLabel="#{msg['msg.payment']}" itemValue="" noSelectionOption="true"/>
+				
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="#{msg['msg.value.freight']}" for="valordofrete"/>
+			<p:inputText styleClass="moeda" id="valordofrete" size="10" maxlength="10"/>
+
+			
+			<p:outputLabel value="#{msg['msg.subtotal']}" style="font-weight: bold;"/>
+			<h:outputText value="R$ 0,00" style="font-weight: bold;" id="subtotal" />
+			
+			<p:outputLabel value="#{msg['msg.discount.value']}" for="valor-de-desconto"/>
+			<p:inputText styleClass="moeda" id="valor-de-desconto" size="10" maxlength="10" />
+			
+			<p:outputLabel  value="#{msg['msg.amount']}" style="font-weight: bold; font-size:1.1em;"/>
+			<h:outputText value="R$ 0,00" style="font-weight: bold;" id="total-pedido" />
+			
+		</p:panelGrid>
+		
+	</ui:composition>

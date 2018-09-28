@@ -6,18 +6,18 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 	
 		<p:toolbar style="margin-top:20px;">
+		
 			<p:toolbarGroup >
 				<p:button value="Novo" outcome="/produtos/cadastroProduto"/>
-				<p:commandButton value="Salvar"/>
+				<p:commandButton value="#{btn['btn.save']}"/>
 			</p:toolbarGroup>
 			<p:toolbarGroup align="right" >
-			<p:commandButton value="Emitir"/>
-			<p:commandButton value="Cancelar"/>
-			<p:commandButton value="Enviar por email"/>
+			<p:commandButton value="#{btn['btn.issue']}"/>
+			<p:commandButton value="#{btn['btn.cancel']}"/>
+			<p:commandButton value="#{btn['btn.sendEmail']}"/>
 			<p:separator/>
-			<p:button value="Pesquisa" outcome="/produtos/consultaProdutos" />
+			<p:button value="#{btn['btn.search']}" outcome="/produtos/consultaProdutos" />
 			</p:toolbarGroup>
 		</p:toolbar>
-	
-	
+		
 	</ui:composition>

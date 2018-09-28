@@ -1,0 +1,37 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+		<p:dataTable value="#{cadastroPedidoBean.produtosFiltrados}" id="produtosTable"
+				 var="produto"
+				style="margin-top:20px" emptyMessage="#{msg['msg.emptyMessage']}"
+				rows="20" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+				
+				<p:column headerText="#{msg['msg.sku']}" style="width:250px; text-align:center">
+					<p:inputText size="8"/>
+				</p:column>
+				<p:column headerText="#{msg['msg.client']}">
+					<h:outputText value="Supermercado João das Couves"  />
+				</p:column>
+				<p:column headerText="#{msg['msg.salesman']}">
+					<h:outputText value="José Junior"  />
+				</p:column>
+				<p:column headerText="#{msg['msg.date']}" style="width:120px; text-align:right">
+					<h:outputText value="12/05/2018"  />
+				</p:column>
+				<p:column headerText="#{msg['msg.amount']}" style="width:120px; text-align:center">
+					<h:outputText value="R$ 1.525,20"  />
+				</p:column>
+				<p:column headerText="#{msg['msg.status']}" style="width:120px; text-align:center">
+					<h:outputText value="Emitido"  />
+				</p:column>
+				<p:column headerText="#{msg['msg.date']}" style="width:50px; text-align:center">		
+					<p:button icon="ui-icon-pencil" title="editar"/>	
+				</p:column>
+
+			</p:dataTable>
+		
+	</ui:composition>
