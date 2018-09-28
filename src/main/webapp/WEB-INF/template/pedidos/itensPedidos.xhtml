@@ -10,27 +10,31 @@
 				style="margin-top:20px" emptyMessage="#{msg['msg.emptyMessage']}"
 				rows="20" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
 				
-				<p:column headerText="#{msg['msg.sku']}" style="width:250px; text-align:center">
+				<p:column headerText="#{msg['msg.sku']}" style="width:100px; text-align:center">
 					<p:inputText size="8"/>
 				</p:column>
-				<p:column headerText="#{msg['msg.client']}">
-					<h:outputText value="Supermercado João das Couves"  />
+				<p:column style="width:300px; text-align:center" headerText="#{msg['msg.product']}">
+					<p:autoComplete size="55"/>
 				</p:column>
-				<p:column headerText="#{msg['msg.salesman']}">
-					<h:outputText value="José Junior"  />
+				<p:column style="width:100px; text-align:center" headerText="#{msg['msg.unitValue']}">
+					<h:outputText value="R$ 0,00"  />
 				</p:column>
-				<p:column headerText="#{msg['msg.date']}" style="width:120px; text-align:right">
-					<h:outputText value="12/05/2018"  />
+				<p:column headerText="#{msg['msg.amount']}" style="width:100px; text-align:center">
+					<p:inputText size="8"  value="1"  />
 				</p:column>
-				<p:column headerText="#{msg['msg.amount']}" style="width:120px; text-align:center">
-					<h:outputText value="R$ 1.525,20"  />
+				<p:column headerText="#{msg['msg.stock']}" style="width:100px; text-align:center">
+					<h:outputText style="text-aling:center" value="1"  />
 				</p:column>
-				<p:column headerText="#{msg['msg.status']}" style="width:120px; text-align:center">
-					<h:outputText value="Emitido"  />
+				<p:column headerText="#{msg['msg.value.freight']}" style="width:100px;  text-align:center">
+					<h:outputText value="R$ 0,00"  />
 				</p:column>
-				<p:column headerText="#{msg['msg.date']}" style="width:50px; text-align:center">		
-					<p:button icon="ui-icon-pencil" title="editar"/>	
-				</p:column>
+				<p:columnGroup type="footer">
+					<p:row>
+						<p:column colspan="5" footerText="#{msg['msg.subtotal']}" style="text-align:right"/>
+						<p:column  footerText="R$ 0,00"  style="text-align:right" />
+					</p:row>				
+				</p:columnGroup>
+				
 
 			</p:dataTable>
 		
