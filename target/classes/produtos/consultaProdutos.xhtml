@@ -33,18 +33,18 @@
 				<p:column headerText="SKU" style="text-align:center;width:100px;">
 					<h:outputText value="123" />
 				</p:column>
-				<p:column headerText="Categoria" style="width:250px;">
+				<p:column headerText="#{msg['msg.category']}" style="width:250px;">
 					<h:outputText value="Bala de Morango"  />
 				</p:column>
-				<p:column headerText="Valor Unitário" style="width:120px; text-align:right">
+				<p:column headerText="#{msg['msg.unitValue']}" style="width:120px; text-align:right">
 					<h:outputText value="R$ 1,20"  />
 				</p:column>
-				<p:column headerText="Estoque" style="width:100px; text-align:center">
+				<p:column headerText="#{msg['msg.stock']}" style="width:100px; text-align:center">
 					<h:outputText value="98"  />
 				</p:column>
-				<p:column headerText="Estoque" style="width:100px; text-align:center">
-					<p:button icon="ui-icon-pencil" title="editar"/>
-					<p:commandButton icon="ui-icon-trash" title="excluir"/>
+				<p:column headerText="#{msg['msg.action']}" style="width:100px; text-align:center">
+					<p:button icon="ui-icon-pencil" title="#{btn['btn.alter']}"/>
+					<p:commandButton icon="ui-icon-trash" title="#{btn['btn.remove']}"/>
 				</p:column>
 
 			</p:dataTable>
