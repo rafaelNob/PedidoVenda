@@ -44,10 +44,20 @@
 				</p:column>
 				<p:column headerText="#{msg['msg.action']}" style="width:100px; text-align:center">
 					<p:button icon="ui-icon-pencil" title="#{btn['btn.alter']}"/>
-					<p:commandButton icon="ui-icon-trash" title="#{btn['btn.remove']}"/>
+					<p:commandButton icon="ui-icon-trash" title="#{btn['btn.remove']}" oncomplete="PF('confirmacaoExclusao').show();"/>
 				</p:column>
 
 			</p:dataTable>
+
+			<p:confirmDialog header="Exclusão de Produto"  showEffect="fade" hideEffect="fade"
+				message="Tem certeza que deseja excluir o produto?"
+				widgetVar="confirmacaoExclusao">
+				<p:button value="Não"
+					onclick="PF('confirmacaoExclusao').hide(); return false;"  />
+				<p:commandButton value="Sim"
+					oncomplete="confirmacaoExclusao.hide();" iconPos="ui-icon-trash" />
+
+			</p:confirmDialog>
 		</h:form>
 	</ui:define>
 
