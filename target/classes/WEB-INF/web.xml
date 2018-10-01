@@ -6,8 +6,15 @@
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+   <welcome-file-list>
+        <welcome-file>home.xhtml</welcome-file>
+    </welcome-file-list>
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>Faces Servlet</servlet-name> -->
+<!--     <url-pattern>/faces/*</url-pattern> -->
+<!--   </servlet-mapping> -->
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
 </web-app>
