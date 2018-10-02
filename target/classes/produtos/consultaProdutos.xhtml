@@ -7,7 +7,9 @@
 	<ui:define name="titulo">Novo Produto</ui:define>
 
 	<ui:define name="corpo">
-		<h1>Pesquisa Produto</h1>
+		<h1>
+			<h:outputText value="#{msg['msg.search.product']}" />
+		</h1>
 		<h:form>
 			<p:toolbar style="margin-top:20px;">
 				<p:toolbarGroup>
@@ -26,36 +28,43 @@
 				<p:inputText id="nome" size="60" />
 
 			</p:panelGrid>
-			<p:dataTable value="#{pesquisaProdutoBean.produtosFiltrados}" id="produtosTable"
-				 var="produto"
-				style="margin-top:20px" emptyMessage="Nenhum Produto Encontrado"
-				rows="20" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+			<p:dataTable value="#{pesquisaProdutoBean.produtosFiltrados}"
+				id="produtosTable" var="produto" style="margin-top:20px"
+				emptyMessage="#{msg['msg.emptyMessage']}" rows="20" paginator="true"
+				paginatorAlwaysVisible="false" paginatorPosition="bottom">
 				<p:column headerText="SKU" style="text-align:center;width:100px;">
 					<h:outputText value="123" />
 				</p:column>
 				<p:column headerText="#{msg['msg.category']}" style="width:250px;">
-					<h:outputText value="Bala de Morango"  />
+					<h:outputText value="Bala de Morango" />
 				</p:column>
-				<p:column headerText="#{msg['msg.unitValue']}" style="width:120px; text-align:right">
-					<h:outputText value="R$ 1,20"  />
+				<p:column headerText="#{msg['msg.unitValue']}"
+					style="width:120px; text-align:right">
+					<h:outputText value="R$ 1,20" />
 				</p:column>
-				<p:column headerText="#{msg['msg.stock']}" style="width:100px; text-align:center">
-					<h:outputText value="98"  />
+				<p:column headerText="#{msg['msg.stock']}"
+					style="width:100px; text-align:center">
+					<h:outputText value="98" />
 				</p:column>
-				<p:column headerText="#{msg['msg.action']}" style="width:100px; text-align:center">
-					<p:button icon="ui-icon-pencil" title="#{btn['btn.alter']}"/>
-					<p:commandButton icon="ui-icon-trash" title="#{btn['btn.remove']}" oncomplete="PF('confirmacaoExclusao').show();"/>
+				<p:column headerText="#{msg['msg.action']}"
+					style="width:100px; text-align:center">
+					<p:button icon="ui-icon-pencil" title="#{btn['btn.alter']}" />
+					<p:commandButton icon="ui-icon-trash" title="#{btn['btn.remove']}"
+						oncomplete="PF('confirmacaoExclusao').show();" />
+						
+						
 				</p:column>
 
 			</p:dataTable>
 
-			<p:confirmDialog header="Exclusão de Produto"  showEffect="fade" hideEffect="fade"
-				message="Tem certeza que deseja excluir o produto?"
+			<p:confirmDialog header="Exclusão de Produto" showEffect="fade"
+				hideEffect="fade" message="#{msg['msg.confirm.remove']}"
 				widgetVar="confirmacaoExclusao">
 				<p:button value="Não"
-					onclick="PF('confirmacaoExclusao').hide(); return false;"  />
+					onclick="PF('confirmacaoExclusao').hide(); return false;" />
 				<p:commandButton value="Sim"
-					oncomplete="confirmacaoExclusao.hide();" iconPos="ui-icon-trash" />
+					oncomplete="confirmacaoExclusao.hide();" iconPos="ui-icon-trash" >
+					</p:commandButton>
 
 			</p:confirmDialog>
 		</h:form>
