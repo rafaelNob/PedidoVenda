@@ -21,16 +21,14 @@ import javax.faces.event.ExceptionQueuedEventContext;
  *         Class tratador de Excessões impacotado
  */
 public class JsfExceptionHandlerFactory extends ExceptionHandlerFactory {
-	private ExceptionHandlerFactory parent;
+private ExceptionHandlerFactory parent;
 	
-	 public JsfExceptionHandlerFactory(ExceptionHandlerFactory parent) {
+	public JsfExceptionHandlerFactory(ExceptionHandlerFactory parent) {
 		this.parent = parent;
 	}
 	
 	@Override
 	public ExceptionHandler getExceptionHandler() {
-		return new JsfExceptionHandler(parent.getExceptionHandler() );
+		return new JsfExceptionHandler(parent.getExceptionHandler());
 	}
-	
-
 }

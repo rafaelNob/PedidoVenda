@@ -9,7 +9,7 @@
 		
 			<p:toolbarGroup >
 				<p:button value="Novo" outcome="/produtos/cadastroProduto"/>
-				<p:commandButton value="#{btn['btn.save']}"/>
+				<p:commandButton value="#{btn['btn.save']}" action="#{cadastroPedidoBean.salvar()}"/>
 			</p:toolbarGroup>
 			<p:toolbarGroup align="right" >
 			<p:commandButton value="#{btn['btn.issue']}"/>

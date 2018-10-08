@@ -1,7 +1,6 @@
 package br.projetoestoque.util.jsf;
 
 import java.io.IOException;
-import java.lang.ProcessBuilder.Redirect;
 import java.util.Iterator;
 
 import javax.faces.FacesException;
@@ -13,6 +12,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * 
  * @author rnfranca
@@ -20,56 +22,71 @@ import javax.faces.event.ExceptionQueuedEventContext;
  *         Class tratador de Excessões impacotado
  */
 public class JsfExceptionHandler extends ExceptionHandlerWrapper {
-	private ExceptionHandler wapped;
-
-	public JsfExceptionHandler(ExceptionHandler wapped) {
-		this.wapped = wapped;
+private ExceptionHandler wrapped;
+private static Log log = LogFactory.getLog(JsfExceptionHandler.class);
+	
+	public JsfExceptionHandler(ExceptionHandler wrapped) {
+		this.wrapped = wrapped;
 	}
-
+	
 	@Override
 	public ExceptionHandler getWrapped() {
-		return null;
+		return this.wrapped;
 	}
-
+	
 	@Override
 	public void handle() throws FacesException {
 		Iterator<ExceptionQueuedEvent> events = getUnhandledExceptionQueuedEvents().iterator();
+		 
 		while (events.hasNext()) {
 			ExceptionQueuedEvent event = events.next();
 			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getSource();
+			
 			Throwable exception = context.getException();
+			NegocioException negocioException = getNegocioException(exception);
+boolean handled = false;
+			
 			try {
 				if (exception instanceof ViewExpiredException) {
+					handled = true;
 					redirect("/");
+				} else if (negocioException != null) {
+					handled = true;
+					FacesUtil.addMessagem(negocioException.getMessage());
+				} else {
+					handled = true;
+					log.error("Erro de sistema: " + exception.getMessage(), exception);
+					redirect("/erro.xhtml");
 				}
 			} finally {
-				events.remove();
+				if (handled) {
+					events.remove();
+				}
 			}
 		}
 		
 		getWrapped().handle();
-
 	}
-
-	/**
-	 * Redireciona o erro
-	 * 
-	 * @param page
-	 */
-
+	private NegocioException getNegocioException(Throwable exception) {
+		if(exception instanceof NegocioException) {
+			
+			return (NegocioException) exception;
+		}else if(exception.getCause() != null) {
+			return getNegocioException(exception.getCause());
+		}
+		return null;
+	}
 	private void redirect(String page) {
-
 		try {
-			FacesContext facesContex = FacesContext.getCurrentInstance();
-			ExternalContext external = facesContex.getExternalContext();
-			String contextPath = external.getRequestContextPath();
-
-			external.redirect(contextPath + page);
-			facesContex.responseComplete();
+			FacesContext facesContext = FacesContext.getCurrentInstance();
+			ExternalContext externalContext = facesContext.getExternalContext();
+			String contextPath = externalContext.getRequestContextPath();
+	
+			externalContext.redirect(contextPath + page);
+			facesContext.responseComplete();
 		} catch (IOException e) {
 			throw new FacesException(e);
 		}
-
 	}
 
 }
