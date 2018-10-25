@@ -4,14 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 
 
 
 
 @Named
-@ConversationScoped
 public class PesquisaProdutoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -7,6 +7,8 @@
 	<ui:define name="titulo">Novo Produto</ui:define>
 	
 	<ui:define name="corpo">
+	<h:form>
+		<p:messages autoUpdate="true"/>
 		<h1><p:outputLabel value="#{msg['msg.search.orders']}"/></h1>
 		
 		<p:toolbar style="margin-top:20px;">
@@ -41,9 +43,9 @@
 			<p:inputText styleClass="moeda" id="valorUnitario" size="10" maxlength="10" />	
 			
 			<p:outputLabel value="#{msg['msg.stock']}" for="estoque"/>
-			<p:inputText id="estoque" size="10" maxlength="4" />	
+			<p:inputText id="estoque" size="10" maxlength="4" value="#{cadastroProdutoBean.produto.quantidadeEstoque}"  />	
 		</p:panelGrid>
-		
+	</h:form>
 	</ui:define>
 	
 </ui:composition>

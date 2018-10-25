@@ -1,14 +1,19 @@
 package br.projetoestoque.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.ConversationScoped;
+import javax.inject.Named;
 
 import br.projetoestoque.util.jsf.NegocioException;
 
-@ManagedBean
-public class CadastroPedidoBean {
+@Named
+@ConversationScoped
+public class CadastroPedidoBean implements Serializable {
+	
+	private static final long serialVersionUID = -7134062374180401449L;
 	private List<Integer> produtosFiltrados = new ArrayList<>();
 	
 	public CadastroPedidoBean() {

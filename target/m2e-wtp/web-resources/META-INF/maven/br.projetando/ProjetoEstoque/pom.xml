@@ -35,14 +35,14 @@
 			<artifactId>weld-servlet</artifactId>
 			<version>1.1.10.Final</version>
 		</dependency>
-	<!-- DEPENDENCIAS DE LOG PARA MENSAGEM DE ERRORS -->
+		<!-- DEPENDENCIAS DE LOG PARA MENSAGEM DE ERRORS -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- Commons Logging (abstrai a implementação de logging) -->
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -60,22 +60,14 @@
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 			<version>1.0.0.Final</version>
 		</dependency>
-		
-		<!-- Núcleo do Hibernate -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-core</artifactId> -->
-<!-- 			<version>4.2.3.Final</version> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
-		
-		<!-- Implementação de EntityManager da JPA -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-entitymanager</artifactId> -->
-<!-- 			<version>4.2.3.Final</version> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
+
+		<!--Bean validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.0.Final</version>
+		</dependency>
+
 
 		<!-- Driver JDBC do MySQL -->
 		<dependency>
