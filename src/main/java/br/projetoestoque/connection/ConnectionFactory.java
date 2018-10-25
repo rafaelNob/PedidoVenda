@@ -1,10 +1,10 @@
-package br.projetoestoque.controller;
+package br.projetoestoque.connection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Fabrica {
+public class ConnectionFactory {
 	private static EntityManagerFactory emf = null;
 	static {
 		if(emf == null) {
@@ -16,5 +16,6 @@ public class Fabrica {
 	public static EntityManager getConnection() {
 		return emf.createEntityManager();
 	}
+
 
 }
