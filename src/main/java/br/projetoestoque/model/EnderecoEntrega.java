@@ -4,17 +4,27 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Embeddable
 public class EnderecoEntrega implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@NotBlank @Size(max = 150)
 	private String logradouro;
+	@NotBlank @Size(max = 20)
 	private String numero;
+	@Size(max = 150)
 	private String complemento;
+	@NotBlank @Size(max = 60)
 	private String cidade;
+	@NotBlank @Size(max = 60)
 	private String uf;
+	@NotBlank @Size(max = 9)
 	private String cep;
 
 	@Column(name = "entrega_logradouro", nullable = false, length = 150)

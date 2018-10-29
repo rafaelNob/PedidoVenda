@@ -21,6 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pedido")
@@ -29,16 +30,27 @@ public class Pedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@NotNull
 	private Date dataCriacao;
+	
 	private String observacao;
+	@NotNull
 	private Date dataEntrega;
+	@NotNull
 	private BigDecimal valorFrete;
+	@NotNull
 	private BigDecimal valorDesconto;
+	@NotNull
 	private BigDecimal valorTotal;
+	@NotNull
 	private StatusPedido status;
+	@NotNull
 	private FormaPagamento formaPagamento;
+	@NotNull
 	private Usuario vendedor;
+	@NotNull
 	private Cliente cliente;
+	
 	private EnderecoEntrega enderecoEntrega;
 	private List<ItemPedido> itens = new ArrayList<>();
 

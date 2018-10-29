@@ -9,14 +9,22 @@
 			br.projetoestoque.util.jsf.JsfExceptionHandlerFactory</exception-handler-factory>
 	</factory>
 	<application>
+	
+	<locale-config>
+		<default-locale>pt_BR</default-locale>
+	</locale-config>
+	
 		<resource-bundle>
 			<base-name>btnName</base-name>
 			<var>btn</var>
 		</resource-bundle>
+		
 		<resource-bundle>
 			<base-name>message</base-name>
 			<var>msg</var>
 		</resource-bundle>
+		
+		<message-bundle>br.projetoestoque.messageError</message-bundle>
 	</application>
 
 </faces-config>
