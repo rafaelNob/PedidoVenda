@@ -7,6 +7,10 @@
 	<ui:define name="titulo">Novo Produto</ui:define>
 	
 	<ui:define name="corpo">
+	<f:metadata>
+<!-- 	Antes da página ser renderizada chamar o método -->
+		<f:event listener="#{cadastroProdutoBean.initializar()}" type="preRenderView"/>
+	</f:metadata>
 	<h:form>
 		<p:messages autoUpdate="true" closable="true"/>
 		<h1><p:outputLabel value="#{msg['msg.search.orders']}"/></h1>
@@ -32,6 +36,7 @@
 			<p:selectOneMenu id="categoria">
 				<f:selectItem itemLabel="#{msg['msg.selectCateory']}"
 				/>
+				<f:selectItems value="#{cadastroProdutoBean.categoriaRaizes}" var="categoria" itemValue="#{categoria}" itemLabel="#{categoria.descricao}"/>
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="#{msg['msg.subCateory']}" for="subCategoria"/>
