@@ -8,7 +8,7 @@
 	
 	<ui:define name="corpo">
 	<h:form>
-		<p:messages autoUpdate="true"/>
+		<p:messages autoUpdate="true" closable="true"/>
 		<h1><p:outputLabel value="#{msg['msg.search.orders']}"/></h1>
 		
 		<p:toolbar style="margin-top:20px;">
@@ -23,10 +23,10 @@
 		
 		<p:panelGrid columnClasses="rotulo , campo" style="width:100%; margin-top:20px;" columns="2" id="painel">
 			<p:outputLabel value="SKU" for="sku"/>
-			<p:inputText id="sku" size="20" maxlength="20" />
+			<p:inputText id="sku" size="20" maxlength="20" value="#{cadastroProdutoBean.produto.sku}" />
 			
 			<p:outputLabel value="#{msg['msg.name']}" for="nome"/>
-			<p:inputText id="nome" size="60" maxlength="60" />
+			<p:inputText id="nome" size="60" maxlength="80" value="#{cadastroProdutoBean.produto.nome}" />
 			
 			<p:outputLabel value="#{msg['msg.category']}" for="categoria"/>
 			<p:selectOneMenu id="categoria">
@@ -35,12 +35,14 @@
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="#{msg['msg.subCateory']}" for="subCategoria"/>
-			<p:selectOneMenu id="subCategoria">
+			<p:selectOneMenu id="subCategoria" value="#{cadastroProdutoBean.produto.categoria}">
 				<f:selectItem itemLabel="#{msg['msg.selectSubCateory']}"
 				/>
 			</p:selectOneMenu>
 			<p:outputLabel  value="#{msg['msg.unitValue']}" for="valorUnitario"/>
-			<p:inputText styleClass="moeda" id="valorUnitario" size="10" maxlength="10" />	
+			<p:inputText styleClass="moeda" id="valorUnitario" size="10" maxlength="10" value="#{cadastroProdutoBean.produto.valorUnitario}" >
+				<f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+			</p:inputText>	
 			
 			<p:outputLabel value="#{msg['msg.stock']}" for="estoque"/>
 			<p:inputText id="estoque" size="10" maxlength="4" value="#{cadastroProdutoBean.produto.quantidadeEstoque}"  />	

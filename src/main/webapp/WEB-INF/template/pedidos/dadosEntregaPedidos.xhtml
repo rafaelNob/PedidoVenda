@@ -7,27 +7,27 @@
 	
 		<p:panelGrid columns="4">
 			<p:outputLabel value="#{msg['msg.delivery.data']}" for="data-de-entrega"/>
-			<p:calendar id="data-de-entrega" pattern="dd/mm/yyy"/>
+			<p:calendar id="data-de-entrega" pattern="dd/mm/yyy" value="#{cadastroPedidoBean.pedido.dataEntrega}" />
 			<p:spacer/>
 			<p:spacer/>
 			
 			<p:outputLabel value="#{msg['msg.public.place']}" for="entrega-logradouro"/>
-			<p:inputText id="entrega-logradouro" size="50"/>
+			<p:inputText id="entrega-logradouro" size="50" value="#{cadastroPedidoBean.pedido.enderecoEntrega.logradouro}"/>
 			
 			<p:outputLabel value="#{msg['msg.number']}" for="entrega-numero"/>
-			<p:inputText id="entrega-numero" size="5"/>
+			<p:inputText id="entrega-numero" size="5"  value="#{cadastroPedidoBean.pedido.enderecoEntrega.numero}"/>
 			
 			<p:outputLabel value="#{msg['msg.complement']}" for="entrega-complemento"/>
-			<p:inputText id="entrega-complemento" size="50"/>
+			<p:inputText id="entrega-complemento" size="50" value="#{cadastroPedidoBean.pedido.enderecoEntrega.complemento}" />
 			
 			<p:outputLabel value="#{msg['msg.city']}" for="entrega-cidade"/>
-			<p:inputText id="entrega-cidade" size="50"/>
+			<p:inputText id="entrega-cidade" size="50" value="#{cadastroPedidoBean.pedido.enderecoEntrega.cidade}"/>
 			
 			<p:outputLabel value="#{msg['msg.state']}" for="entrega-estado"/>
-			<p:inputText id="entrega-estado" size="50"/>
+			<p:inputText id="entrega-estado" size="50" value="#{cadastroPedidoBean.pedido.enderecoEntrega.uf}"/>
 			
 			<p:outputLabel value="#{msg['msg.zipcode']}" for="entrega-cep"/>
-			<p:inputText id="entrega-cep" size="10"/>
+			<p:inputText id="entrega-cep" size="10" value="#{cadastroPedidoBean.pedido.enderecoEntrega.cep}"/>
 			
 			
 		

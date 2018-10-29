@@ -11,7 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="produto")
@@ -20,10 +25,15 @@ public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@NotBlank
+	@Size(max = 80)
 	private String nome;
+	@NotBlank
 	private String sku;
+	@NotNull
 	private BigDecimal valorUnitario;
 	private Integer quantidadeEstoque;
+	@NotNull
 	private Categoria categoria;
 
 	@Id
@@ -62,7 +72,7 @@ public class Produto implements Serializable {
 	public void setValorUnitario(BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
-	@NotNull
+	@NotNull @Min(0) @Max(9999)
 	@Column(name="quantidade_estoque", nullable = false, length = 5)
 	public Integer getQuantidadeEstoque() {
 		return quantidadeEstoque;
