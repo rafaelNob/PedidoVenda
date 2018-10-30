@@ -12,6 +12,7 @@ import javax.persistence.Persistence;
 
 import br.projetoestoque.model.Categoria;
 import br.projetoestoque.model.Produto;
+import br.projetoestoque.repository.CategoriaRepository;
 
 @Named
 @ConversationScoped
@@ -23,7 +24,7 @@ public class CadastroProdutoBean implements Serializable {
 	private Produto produto;
 	private List<Categoria> categoriaRaizes;
 	@Inject
-	private EntityManager manager;
+	private CategoriaRepository categoria;
 	public CadastroProdutoBean() {
 		produto = new Produto();
 	}
@@ -32,7 +33,7 @@ public class CadastroProdutoBean implements Serializable {
 	public void initializar() {
 		
 		
-		categoriaRaizes = manager.createQuery("FROM Categoria",Categoria.class).getResultList();
+		categoriaRaizes = categoria.raizes();
 		
 		
 	}
